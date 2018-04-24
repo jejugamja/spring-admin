@@ -16,8 +16,20 @@ public class Alert {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name="userId",
+                    column=@Column(name="FROM_USER_ID")),
+            @AttributeOverride(name="userName",
+                    column=@Column(name="FROM_USER_NAME"))
+    })
     private AlertUser fromUser;
     @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name="userId",
+                    column=@Column(name="TO_USER_ID")),
+            @AttributeOverride(name="userName",
+                    column=@Column(name="TO_USER_NAME"))
+    })
     private AlertUser toUser;
     private String message;
     private Boolean isRead;
