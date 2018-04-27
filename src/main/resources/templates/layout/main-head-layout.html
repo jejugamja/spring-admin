@@ -8,10 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="images/favicon.ico" type="image/ico" />
 
+    <!-- custom meta -->
     <th:block layout:fragment="meta" />
+    <!-- page title -->
     <th:block layout:fragment="title" />
 
-    <th:block th:include="layout/css" />
+    <th:block th:include="layout/resource/css" />
+    <!-- custom css -->
     <th:block layout:fragment="css" />
 </head>
 </html>

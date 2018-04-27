@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/page/basic-grid-page">
+<head>
+    <th:block layout:fragment="title">
+        <title>BBTree Template | </title>
+    </th:block>
+</head>
+<body>
+    <th:block layout:fragment="html">
+        <div data-ax5grid="first-grid" data-ax5grid-config='{name:"my first grid"}' style="height: 500px;"></div>
+    </th:block>
+
+    <th:block layout:fragment="grid_js">
+        <script>
+            var grid = $('[data-ax5grid="first-grid"]');
+            var columns= [
+                {key: "saleType", label: "판매타입"},
+                {key: "saleType", label: "판매타입"},
+                {key: "saleType", label: "판매타입"},
+                {key: "saleType", label: "판매타입"},
+                {key: "saleType", label: "판매타입"},
+                {key: "saleType", label: "판매타입"},
+                {key: "saleType", label: "판매타입"},
+                {key: "saleType", label: "판매타입"},
+                {key: "saleType", label: "판매타입"}
+            ];
+        </script>
+    </th:block>
+</body>
+</html>

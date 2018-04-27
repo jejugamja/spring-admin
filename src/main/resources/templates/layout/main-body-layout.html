@@ -4,16 +4,20 @@
 <body th:fragment="body" class="nav-md">
 <div class="container body">
     <div class="main_container">
-        <div th:replace="layout/left-menu-fragment :: left-menu"></div>
+        <div th:replace="layout/fragment/left-menu-fragment :: left-menu"></div>
 
         <!-- top navigation -->
-        <div th:replace="layout/top-nav-fragment :: top-nav"></div>
+        <div th:replace="layout/fragment/top-nav-fragment :: top-nav"></div>
         <!-- /top navigation -->
 
-        <th:block layout:fragment="content_body"/>
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <th:block layout:fragment="content_body"/>
+        </div>
     </div>
 </div>
-<th:block th:include="layout/script"/>
+<th:block th:include="layout/resource/script"/>
+<th:block layout:fragment="page_js"/>
 <th:block layout:fragment="custom_js"/>
 </body>
 </html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/main-layout">
+
+<head>
+    <th:block layout:fragment="css">
+        <link th:href="@{/resources/ax5/grid/ax5grid.css}" rel="stylesheet">
+    </th:block>
+</head>
+
+<body>
+<th:block layout:fragment="content_body">
+
+    <th:block layout:fragment="html" />
+
+    <th:block layout:fragment="page_js">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script type="text/javascript" th:src="@{/resources/ax5/core/ax5core.min.js}"></script>
+        <script type="text/javascript" th:src="@{/resources/ax5/grid/ax5grid.min.js}"></script>
+
+        <th:block layout:fragment="grid_js" />
+
+        <script>
+            if (!columns) {
+                alert('columns이 정의 되지 않았습니다.')
+            }
+
+
+            var firstGrid = new ax5.ui.grid();
+            firstGrid.setConfig({
+                target: grid,
+                showLineNumber: true,
+                showRowSelector: true,
+                multipleSelect: true,
+                lineNumberColumnWidth: 40,
+                rowSelectorColumnWidth: 28,
+                sortable: true,
+                multiSort: false,
+                header: {
+                    align: "center",
+                    columnHeight: 28
+                },
+                body: {
+                    align: "center",
+                    columnHeight: 28,
+                    onClick: function () {
+                        // console.log(this);
+                        this.self.select(this.dindex);
+                    }
+                },
+                columns: columns
+            });
+        </script>
+    </th:block>
+</th:block>
+</body>
+</html>
